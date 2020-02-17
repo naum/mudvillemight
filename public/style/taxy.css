@@ -1,0 +1,438 @@
+
+/*-------------*/
+/* DEFINITIONS */
+/*-------------*/
+
+:root {
+    --light-shade: #F4F2E3;
+    --light-accent: #CB9950;
+    --main-brand: #8F5D70;
+    --dark-accent: #8A767B;
+    --dark-shade: #321C1F;
+    --max-mobile-width: 767px;
+}
+
+/*------------------------------------------------*/
+/* FORMS, GRID, HEADINGS, PRE, TABLES, TYPOGRAPHY */
+/*------------------------------------------------*/
+
+* {
+    border: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-sizing: border-box;
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+a {
+    color: var(--main-brand);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+article, header, footer {
+    padding: 2.37rem auto;
+}
+
+article {
+    background: var(--light-shade);
+    border: 1px solid var(--dark-accent);
+}
+
+aside {
+    float: right;
+    width: 18em;
+}
+
+b, dt, strong {
+    font-weight: 600;
+}
+
+blockquote {
+    border-left: 0.125rem solid var(--light-accent);
+    padding: 0.25rem 1rem 0.25rem 0.75rem;
+}
+
+blockquote footer {
+    color: var(--dark-accent);
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+blockquote p {
+    margin-bottom: 0;
+}
+
+body, html {
+    font-family: "Gill Sans", sans-serif;
+    font-size: 100%;
+    width: 100%;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.33rem;
+}
+
+body {
+    background: var(--light-shade);
+    color: var(--dark-shade);
+    padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 48rem;
+}
+
+
+button,
+input,
+select,
+textarea {
+    border-radius: 0.25rem;
+    display: inline-block;
+    padding: 0.75rem;
+}
+
+button,
+input[type="reset"],
+input[type="submit"] {
+    background: var(-main-brand);
+    color: var(--light-shade);
+    cursor: pointer;
+    display: inline;
+    margin-right: 0.25rem;
+    padding: 0.25rem 1.33rem;
+    text-align: center;
+}
+
+button:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    background: var(--dark--accent);
+}
+
+code, pre, kbd, samp, var, output {
+    font-family: monospace;
+    font-size: 0.75rem;
+}
+
+code, kbd {
+    background: var(--light-accent);
+    color: var(--main-brand);
+    display: inline-block;
+    line-height: 1rem;
+    padding: 0.25rem 0.25rem 0.125rem;
+}
+
+dd {
+    padding: 0 1rem 0.25rem;
+}
+
+dd:last-of-type {
+    border-bottom: 0.0625rem solid var(--light-accent);
+}
+
+dd + dt {
+    border-top: 0.0625rem solid var(--light-accent);
+    padding-top: 0.75rem;
+}
+
+del, s {
+    text-decoration: line-through;
+}
+
+dl {
+    display: inline-block;
+}
+
+dt {
+    padding: 0 1rem;
+}
+
+em, i, var {
+    font-style: italic;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+}
+
+fieldset legend {
+    margin: 1rem 0;
+}
+
+figcaption, small {
+    font-size: 0.75rem;
+}
+
+figure img {
+    display: block;
+}
+
+hr {
+    border-bottom: 1px solid var(--dark-accent);
+}
+
+html {
+    height: 100%;
+}
+
+h1, h2, h3, h4, h4, h6 {
+    color: var(--dark-shade);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.37rem;
+    font-weight: 500;
+    line-height: 2.37rem;
+    margin-top: 4rem;
+}
+
+h2 {
+    font-size: 1.77rem;
+    font-weight: 400;
+    line-height: 2.37rem;
+    margin-top: 3rem;
+}
+
+h3 {
+    font-size: 1.33rem;
+    font-weight: 400;
+    line-height: 1.77rem;
+    margin-top: 3rem;
+}
+
+h4 {
+    font-size: 1rem;
+    line-height: 1.33rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+h5 {
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 1rem;
+    text-transform: uppercase;
+}
+
+h6 {
+    color: var(--light_accent);
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 1rem;
+    text-transform: uppercase;
+}
+
+img {
+    height: auto;
+    margin: 0 auto;
+}
+
+input,
+label,
+select {
+    margin-right: 2rem;
+}
+
+input,
+select,
+textarea {
+    margin-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="phone"],
+input[type="tel"],
+input[type="number"],
+input[type="datetime"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="color"],
+input[type="time"],
+input[type="search"],
+input[type="range"],
+input[type="file"],
+input[type="datetime-local"],
+select,
+textarea {
+  border: 1px solid var(--dark-accent);
+  padding: 0.25rem 0.75rem;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  flex-grow: 0;
+  height: 1.75rem;
+  margin-left: 0;
+  margin-right: .75rem;
+  vertical-align: middle;
+}
+
+ins, u {
+    text-decoration: underline;
+}
+
+kbd {
+    background: var(--main-brand);
+    color: var(--light-shade);
+}
+
+label,
+input[type="checkbox"],
+input[type="radio"] {
+    page-break-before: always;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+}
+
+label * {
+    page-break-before: always;
+}
+
+label > input {
+    margin-bottom: 0;
+}
+
+li dl,
+li ol,
+li ul {
+    margin-bottom: 0;
+}
+
+mark {
+    background: var(--light-accent);
+    padding: 0 0.25rem;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin-left: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    vertical-align: middle;
+}
+
+nav ul li:first-child {
+    margin-left: 0;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+ol, ul {
+    margin-left: 1.77rem;
+}
+
+p, ul, ol, dl, blockquote, hr,
+pre, table, form, fieldset, figure, 
+address {
+    margin-bottom: 1.77rem;
+}
+
+pre {
+    border-left: 0.125rem solid var(--main-brand);
+    line-height: 1.33rem;
+    overflow: auto;
+    padding-left: 1rem;
+}
+
+pre code {
+    background: none;
+    border: 0;
+    line-height: 1.77rem;
+    padding: 0;
+}
+
+section {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50rem;
+}
+
+select[multiple] {
+    min-width: 16rem;
+}
+
+sub, sup {
+    font-size: 0.75rem;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25rem;
+}
+
+sup {
+    top: -0.5rem;
+}
+
+textarea {
+    min-height: 4rem;
+    min-width: 20rem;
+}
+
+table {
+    display: table;
+    width: 100%;
+}
+
+table tr {
+    border-bottom-width: 0.125rem;
+}
+
+table td, table th {
+    overflow: hidden;
+    padding: 0.25rem 0.25rem;
+}
+
+table tr th {
+    border-bottom-width: 0.125rem;
+}
+
+td, th {
+    border-bottom: 0.0625rem solid var(--dark-accent);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead th {
+    border-bottom-width: 0.125rem;
+    padding-bottom: 0.33rem;
+}
+
+th {
+    font-weight: 600;
+}
+
+
+
+
