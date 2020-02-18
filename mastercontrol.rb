@@ -10,7 +10,7 @@ helpers do
   end
 
   def gen_passkey
-    SecureRandom.alphanumeric(12).upcase
+    SecureRandom.uuid.upcase
   end
 
 end

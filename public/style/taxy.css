@@ -37,7 +37,7 @@ a:hover {
 }
 
 article, header, footer {
-    padding: 2.37rem auto;
+    padding: 1.77rem 0;
 }
 
 article {
@@ -193,21 +193,21 @@ h1 {
     font-size: 2.37rem;
     font-weight: 500;
     line-height: 2.37rem;
-    margin-top: 3.16rem;
+    margin-top: 2.37rem;
 }
 
 h2 {
     font-size: 1.77rem;
     font-weight: 400;
     line-height: 2.37rem;
-    margin-top: 2.37rem;
+    margin-top: 1.77rem;
 }
 
 h3 {
     font-size: 1.33rem;
     font-weight: 400;
     line-height: 1.77rem;
-    margin-top: 1.77rem;
+    margin-top: 1.33rem;
 }
 
 h4 {
