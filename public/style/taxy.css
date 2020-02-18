@@ -4,11 +4,11 @@
 /*-------------*/
 
 :root {
-    --light-shade: #F4F2E3;
-    --light-accent: #CB9950;
-    --main-brand: #8F5D70;
-    --dark-accent: #8A767B;
-    --dark-shade: #321C1F;
+    --light-shade: #F9F8F8;
+    --light-accent: #767773;
+    --main-brand: #E1BA29;
+    --dark-accent: #91544D;
+    --dark-shade: #202033;
     --max-mobile-width: 767px;
 }
 
