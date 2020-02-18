@@ -1,11 +1,16 @@
 require 'sinatra'
 require 'sinatra/cookies'
+require 'securerandom'
 require_relative 'uba'
 
 helpers do
 
   def calc_cookie_exp_time
     Time.now + (3600 + 24 * 360)
+  end
+
+  def gen_passkey
+    SecureRandom.alphanumeric(12).upcase
   end
 
 end
@@ -19,7 +24,7 @@ get '/about' do
 end
 
 get '/info' do
-  @keypass = cookies[:joyticket3]
+  @keypass = cookies[:passkey9]
   np = Namepool.new()
   wordlist = []
   20.times do 
@@ -31,7 +36,7 @@ end
 
 get '/genesis' do
   exptime = calc_cookie_exp_time
-  response.set_cookie(:joyticket3, :value => '60 Pirates', :expires => exptime)
+  response.set_cookie(:passkey9, :value => gen_passkey(), :expires => exptime)
   erb :genesis
 end
 
