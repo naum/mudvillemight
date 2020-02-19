@@ -6,11 +6,12 @@ require_relative 'uba'
 helpers do
 
   def calc_cookie_exp_time
-    Time.now + (3600 + 24 * 360)
+    Time.now + (60 * 60 * 24 * 365)
   end
 
   def gen_passkey
-    SecureRandom.uuid.upcase
+    # SecureRandom.uuid.upcase
+    SecureRandom.rand(36 ** 8).to_s(36).upcase
   end
 
 end
