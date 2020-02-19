@@ -17,6 +17,7 @@ helpers do
 end
 
 get '/' do
+  @uba = League.new
   erb :index
 end
 
