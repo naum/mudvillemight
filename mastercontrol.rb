@@ -37,11 +37,12 @@ get '/info' do
 end
 
 get '/genesis' do
-  exptime = calc_cookie_exp_time
-  response.set_cookie(:passkey9, :value => gen_passkey(), :expires => exptime)
   erb :genesis
 end
 
 post '/genesis' do
+  exptime = calc_cookie_exp_time
+  response.set_cookie(:passkey9, :value => gen_passkey(), :expires => exptime)
+  "Yeah, we received the stupid form. Input: #{params.to_s}"
 end
 

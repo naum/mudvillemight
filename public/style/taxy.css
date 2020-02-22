@@ -101,7 +101,7 @@ textarea {
 button,
 input[type="reset"],
 input[type="submit"] {
-    background: var(-main-brand);
+    background: var(--main-brand);
     color: var(--light-shade);
     cursor: pointer;
     display: inline;
@@ -113,7 +113,7 @@ input[type="submit"] {
 button:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-    background: var(--dark--accent);
+    background: var(--dark-accent);
 }
 
 code, pre, kbd, samp, var, output {
