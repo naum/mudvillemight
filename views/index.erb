@@ -1,5 +1,9 @@
-<h2><%= @uba.title %></h2>
+<% if @vuba %>
 
-<% @uba.cities.each do |c| %>
+<h2><%= @vuba.title %></h2>
+
+<% @vuba.cities.each do |c| %>
 <li style="list-style:none;"><%= c %></li>
+<% end %>
+
 <% end %>

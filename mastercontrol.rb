@@ -9,15 +9,30 @@ helpers do
     Time.now + (60 * 60 * 24 * 365)
   end
 
+  def fetch_visitor_league(passkey)
+    ofile = "storage/#{passkey}"
+    if File.exist? ofile 
+      Marshal.load IO.read(ofile) 
+    else
+      nil
+    end
+  end
+
   def gen_passkey
     # SecureRandom.uuid.upcase
     SecureRandom.rand(36 ** 8).to_s(36).upcase
   end
 
+  def stash_visitor_league(passkey, vuba)
+    ofile = "storage/#{passkey}"
+    File.write ofile, Marshal.dump(vuba)
+  end
+
 end
 
 get '/' do
-  @uba = League.new
+  @keypass = cookies[:passkey9]
+  @vuba = fetch_visitor_league(@keypass) if @keypass
   erb :index
 end
 
@@ -41,8 +56,16 @@ get '/genesis' do
 end
 
 post '/genesis' do
-  exptime = calc_cookie_exp_time
-  response.set_cookie(:passkey9, :value => gen_passkey(), :expires => exptime)
-  "Yeah, we received the stupid form. Input: #{params.to_s}"
+  case params["op"]
+  when "cancel"
+    redirect '/info'
+  when "create"
+    exptime = calc_cookie_exp_time
+    vpasskey = gen_passkey
+    response.set_cookie(:passkey9, :value => vpasskey, :expires => exptime)
+    @vuba = League.new
+    stash_visitor_league vpasskey, @vuba
+    redirect '/'
+  end
 end
 
