@@ -30,9 +30,12 @@ helpers do
 
 end
 
-get '/' do
+before do
   @keypass = cookies[:passkey9]
   @vuba = fetch_visitor_league(@keypass) if @keypass
+end
+
+get '/' do
   erb :index
 end
 
@@ -40,8 +43,7 @@ get '/about' do
   erb :about
 end
 
-get '/info' do
-  @keypass = cookies[:passkey9]
+get '/info' do  
   np = Namepool.new()
   wordlist = []
   20.times do 
