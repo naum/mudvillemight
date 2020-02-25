@@ -30,6 +30,10 @@ class Ballplayer
     end
   end
 
+  def worth
+    @skill.inject :+
+  end
+
 end
 
 class League

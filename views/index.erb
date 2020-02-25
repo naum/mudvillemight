@@ -2,8 +2,19 @@
 
 <h2><%= @vuba.title %></h2>
 
-<% @vuba.cities.each do |c| %>
-<li style="list-style:none;"><%= c %></li>
+<table>
+<tr>
+<th>NAME <%= sort_link :by_name %></th>
+<th>POS <%= sort_link :by_pos %></th>
+<th>SKILL <%= sort_link :by_skill %></th>
+</tr>
+<% ordered_freeagents.each do |fa| %>
+<tr>
+<td><%= fa.name %></td>
+<td><%= fa.pos %></td>
+<td><%= fa.skill.join '-' %></td>
+</tr>
 <% end %>
+</table>
 
 <% end %>

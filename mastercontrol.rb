@@ -3,6 +3,8 @@ require 'sinatra/cookies'
 require 'securerandom'
 require_relative 'uba'
 
+enable :sessions
+
 helpers do
 
   def calc_cookie_exp_time
@@ -23,6 +25,10 @@ helpers do
     SecureRandom.rand(36 ** 8).to_s(36).upcase
   end
 
+  def sort_link(by) 
+    "<a href=\"/?sort=#{by}\">\u2193</a>"
+  end
+
   def stash_visitor_league(passkey, vuba)
     ofile = "storage/#{passkey}"
     File.write ofile, Marshal.dump(vuba)
@@ -36,7 +42,18 @@ before do
 end
 
 get '/' do
-  erb :index
+  session[:fasort] = params[:sort] if params[:sort]
+  case session[:fasort]
+  when "by_name"
+    suba = @vuba.freeagents.sort_by(&:name)
+  when "by_pos"
+    suba = @vuba.freeagents.sort_by(&:pos)
+  when "by_skill"
+    suba = @vuba.freeagents.sort_by(&:worth).reverse
+  else
+    suba = @vuba.freeagents
+  end
+  erb :index, :locals => { :ordered_freeagents => suba }
 end
 
 get '/about' do
