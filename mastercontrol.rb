@@ -42,18 +42,22 @@ before do
 end
 
 get '/' do
-  session[:fasort] = params[:sort] if params[:sort]
-  case session[:fasort]
-  when "by_name"
-    suba = @vuba.freeagents.sort_by(&:name)
-  when "by_pos"
-    suba = @vuba.freeagents.sort_by(&:pos)
-  when "by_skill"
-    suba = @vuba.freeagents.sort_by(&:worth).reverse
+  if @vuba
+    session[:fasort] = params[:sort] if params[:sort]
+    case session[:fasort]
+    when "by_name"
+      suba = @vuba.freeagents.sort_by(&:name)
+    when "by_pos"
+      suba = @vuba.freeagents.sort_by(&:pos)
+    when "by_skill"
+      suba = @vuba.freeagents.sort_by(&:worth).reverse
+    else
+      suba = @vuba.freeagents
+    end
+    erb :index, :locals => { :ordered_freeagents => suba }
   else
-    suba = @vuba.freeagents
+    erb :index
   end
-  erb :index, :locals => { :ordered_freeagents => suba }
 end
 
 get '/about' do
