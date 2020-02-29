@@ -86,3 +86,27 @@ class Namepool
   end
 
 end
+
+class Team 
+
+  attr :city, :lineup, :rotation
+
+  def initialize(city)
+    @city = city
+    @lineup = []
+    @rotation = []
+  end
+
+  def acquire(ballplayer)
+    if ballplayer.pos == 'P'
+      @rotation << ballplayer
+    else
+      @lineup << ballplayer
+    end
+  end
+
+  def roster
+    @lineup + @rotation
+  end
+
+end

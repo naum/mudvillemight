@@ -4,11 +4,11 @@
 /*-------------*/
 
 :root {
-    --light-shade: #F9F8F8;
-    --light-accent: #767773;
-    --main-brand: #E1BA29;
-    --dark-accent: #91544D;
-    --dark-shade: #202033;
+    --background-shade: #F2F1F5;
+    --background-accent: #918B75;
+    --main-brand: #5DA493;
+    --text-accent: #735F54;
+    --text-shade: #34373E;
     --max-mobile-width: 767px;
 }
 
@@ -41,8 +41,8 @@ article, header, footer {
 }
 
 article {
-    background: var(--light-shade);
-    border: 1px solid var(--dark-accent);
+    background: var(--background-shade);
+    border: 1px solid var(--background-accent);
 }
 
 aside {
@@ -55,12 +55,14 @@ b, dt, strong {
 }
 
 blockquote {
-    border-left: 0.125rem solid var(--light-accent);
+    border-left: 0.125rem solid var(--background-accent);
+    font-size: 0.75rem;
+    line-height: 1rem;
     padding: 0.25rem 1rem 0.25rem 0.75rem;
 }
 
 blockquote footer {
-    color: var(--dark-accent);
+    color: var(--text-accent);
     font-size: 0.75rem;
     margin: 0;
 }
@@ -70,7 +72,7 @@ blockquote p {
 }
 
 body, html {
-    font-family: "Gill Sans", sans-serif;
+    font-family: sans-serif;
     font-size: 100%;
     width: 100%;
     font-stretch: normal;
@@ -80,8 +82,8 @@ body, html {
 }
 
 body {
-    background: var(--light-shade);
-    color: var(--dark-shade);
+    background: var(--background-shade);
+    color: var(--text-shade);
     padding: 2rem;
     margin-left: auto;
     margin-right: auto;
@@ -101,8 +103,8 @@ textarea {
 button,
 input[type="reset"],
 input[type="submit"] {
-    background: var(--main-brand);
-    color: var(--light-shade);
+    background: var(--text-accent);
+    color: var(--background-shade);
     cursor: pointer;
     display: inline;
     margin-right: 0.25rem;
@@ -113,7 +115,7 @@ input[type="submit"] {
 button:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-    background: var(--dark-accent);
+    background: var(--main-brand);
 }
 
 code, pre, kbd, samp, var, output {
@@ -122,7 +124,7 @@ code, pre, kbd, samp, var, output {
 }
 
 code, kbd {
-    background: var(--light-accent);
+    background: var(--background-accent);
     color: var(--main-brand);
     display: inline-block;
     line-height: 1rem;
@@ -134,11 +136,11 @@ dd {
 }
 
 dd:last-of-type {
-    border-bottom: 0.0625rem solid var(--light-accent);
+    border-bottom: 0.0625rem solid var(--background-accent);
 }
 
 dd + dt {
-    border-top: 0.0625rem solid var(--light-accent);
+    border-top: 0.0625rem solid var(--background-accent);
     padding-top: 0.75rem;
 }
 
@@ -177,7 +179,7 @@ figure img {
 }
 
 hr {
-    border-bottom: 1px solid var(--dark-accent);
+    border-bottom: 1px solid var(--text-accent);
 }
 
 html {
@@ -185,7 +187,7 @@ html {
 }
 
 h1, h2, h3, h4, h4, h6 {
-    color: var(--dark-shade);
+    color: var(--text-shade);
     margin-bottom: 1rem;
 }
 
@@ -225,7 +227,7 @@ h5 {
 }
 
 h6 {
-    color: var(--light_accent);
+    color: var(--background-accent);
     font-size: 0.75rem;
     font-weight: bold;
     line-height: 1rem;
@@ -268,7 +270,7 @@ input[type="file"],
 input[type="datetime-local"],
 select,
 textarea {
-  border: 1px solid var(--dark-accent);
+  border: 1px solid var(--text-accent);
   padding: 0.25rem 0.75rem;
 }
 
@@ -287,7 +289,7 @@ ins, u {
 
 kbd {
     background: var(--main-brand);
-    color: var(--light-shade);
+    color: var(--background-shade);
 }
 
 label,
@@ -316,7 +318,7 @@ li ul {
 }
 
 mark {
-    background: var(--light-accent);
+    background: var(--text-accent);
     padding: 0 0.25rem;
 }
 
@@ -418,7 +420,7 @@ table tr th {
 }
 
 td, th {
-    border-bottom: 0.0625rem solid var(--dark-accent);
+    border-bottom: 0.0625rem solid var(--text-accent);
     padding: 0.75rem 1rem;
     text-align: left;
     vertical-align: top;
