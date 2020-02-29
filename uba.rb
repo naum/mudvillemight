@@ -1,4 +1,3 @@
-require 'yaml'
 require 'securerandom'
 
 class Ballplayer
@@ -91,6 +90,8 @@ class Team
 
   attr :city, :lineup, :rotation
 
+  MAX_ROSTER_SIZE = 12
+
   def initialize(city)
     @city = city
     @lineup = []
@@ -107,6 +108,10 @@ class Team
 
   def roster
     @lineup + @rotation
+  end
+
+  def roster_full?
+    roster.size >= MAX_ROSTER_SIZE
   end
 
 end
