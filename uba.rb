@@ -47,6 +47,10 @@ class League
     genesis
   end
 
+  def assign_freeagents
+ 
+  end
+
   def genesis()
     np = Namepool.new
     @cities = []
