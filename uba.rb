@@ -37,9 +37,9 @@ end
 
 class League
 
-  attr :cities, :freeagents, :title
+  attr :freeagents, :teams, :title
 
-  POS_CHART = 'OOOIIIICPPPP'
+  POS_CHART = 'BBBBBBBBPPPP'
   TOTAL_TEAMS = 20
 
   def initialize()
@@ -48,19 +48,24 @@ class League
   end
 
   def assign_freeagents
- 
+    batter_pool = @freeagents.select {|fa| fa.pos == 'B'}
+    pitcher_pool = @freeagents.select {|fa| fa.pos == 'P'}
+    batter_pool.shuffle!
+    pitcher_pool.shuffle!
   end
 
   def genesis()
     np = Namepool.new
-    @cities = []
     @freeagents = []
+    @teams = {}
     TOTAL_TEAMS.times do
-      @cities << np.draw_loc
+      city = np.draw_loc
+      @teams[city] = Team.new
       POS_CHART.each_char do |p|
         @freeagents << Ballplayer.new(np.draw, p)
       end
     end
+    assign_freeagents
   end
 
 end
@@ -92,12 +97,13 @@ end
 
 class Team 
 
-  attr :city, :lineup, :rotation
+  attr :lineup, :rotation
 
-  MAX_ROSTER_SIZE = 12
+  MAX_LINEUP_SIZE = 8
+  MAX_ROTATION_SIZE = 4
+  MAX_ROSTER_SIZE = MAX_LINEUP_SIZE + MAX_ROTATION_SIZE
 
   def initialize(city)
-    @city = city
     @lineup = []
     @rotation = []
   end
@@ -110,12 +116,20 @@ class Team
     end
   end
 
+  def lineup_full?
+    @lineup.size >= MAX_LINEUP_SIZE
+  end
+
   def roster
     @lineup + @rotation
   end
 
   def roster_full?
     roster.size >= MAX_ROSTER_SIZE
+  end
+
+  def rotation_full?
+    @rotation.size >= MAX_ROTATION_SIZE
   end
 
 end
