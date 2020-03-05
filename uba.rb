@@ -52,6 +52,15 @@ class League
     pitcher_pool = @freeagents.select {|fa| fa.pos == 'P'}
     batter_pool.shuffle!
     pitcher_pool.shuffle!
+    @teams.each do |c, t|
+      until t.lineup_full? do 
+        t.acquire(batter_pool.pop) 
+      end
+      until t.rotation_full? do 
+        t.acquire(pitcher_pool.pop) 
+      end
+    end
+    @freeagents = batter_pool + pitcher_pool
   end
 
   def genesis()
@@ -103,7 +112,7 @@ class Team
   MAX_ROTATION_SIZE = 4
   MAX_ROSTER_SIZE = MAX_LINEUP_SIZE + MAX_ROTATION_SIZE
 
-  def initialize(city)
+  def initialize
     @lineup = []
     @rotation = []
   end

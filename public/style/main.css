@@ -1,0 +1,13 @@
+@import 'taxy.css';
+
+td.name {
+    width: 50%;
+}
+
+td.pos {
+    width: 15%;
+}
+
+td.skill {
+    width: 35%;
+}

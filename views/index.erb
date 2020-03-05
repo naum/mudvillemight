@@ -2,6 +2,21 @@
 
 <h2><%= @vuba.title %></h2>
 
+<h3>Rosters</h3>
+<% @vuba.teams.each do |c, t| %>
+<table>
+<tr>
+<th><%= c %></th>
+<th>POS</th>
+<th>SKILL</th>
+</tr>
+<% t.roster.each do |bp| %>
+<%= erb :ballplayer_line, :locals => { :bp => bp } %>
+<% end %>
+</table>
+<% end %> 
+
+<h3>Freeagents</h3>
 <table>
 <tr>
 <th>NAME <%= sort_link :by_name %></th>
@@ -9,11 +24,7 @@
 <th>SKILL <%= sort_link :by_skill %></th>
 </tr>
 <% ordered_freeagents.each do |fa| %>
-<tr>
-<td><%= fa.name %></td>
-<td><%= fa.pos %></td>
-<td><%= fa.skill.join '-' %></td>
-</tr>
+<%= erb :ballplayer_line, :locals => { :bp => fa } %>
 <% end %>
 </table>
 
