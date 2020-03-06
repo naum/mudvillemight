@@ -2,6 +2,28 @@
 
 <h2><%= @vuba.title %></h2>
 
+<h3>Standings</h3>
+<table>
+<tr>
+<th>CITY</th>
+<th class="num">W</th>
+<th class="num">L</th>
+<th class="num">RS</th>
+<th class="num">RA</th>
+<th class="num">WPCT</th>
+</tr>
+<% @vuba.standings.each do |c, sr| %>
+<tr>
+<td><%= sr.city %></td>
+<td class="num"><%= sr.w %></td>
+<td class="num"><%= sr.l %></td>
+<td class="num"><%= sr.rs %></td>
+<td class="num"><%= sr.ra %></td>
+<td class="num"><%= sprintf('%.3f', sr.win_pct) %></td>
+</tr>
+<% end %>
+</table>
+
 <h3>Rosters</h3>
 <% @vuba.teams.each do |c, t| %>
 <table>

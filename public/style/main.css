@@ -1,13 +1,21 @@
 @import 'taxy.css';
 
 td.name {
-    width: 50%;
+    width: 12rem;
+}
+
+td.num, th.num {
+    text-align: right;
 }
 
 td.pos {
-    width: 15%;
+    width: 4rem;
 }
 
 td.skill {
-    width: 35%;
+    width: 8rem;
+}
+
+td.tex, th.tex {
+    text-align: left;
 }

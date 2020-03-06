@@ -37,7 +37,8 @@ end
 
 class League
 
-  attr :freeagents, :teams, :title
+  attr :freeagents, :schedule, :standings, :teams, :title
+  attr :batterstat, :pitcherstat
 
   POS_CHART = 'BBBBBBBBPPPP'
   TOTAL_TEAMS = 20
@@ -67,6 +68,7 @@ class League
     np = Namepool.new
     @freeagents = []
     @teams = {}
+    @standings = {}
     TOTAL_TEAMS.times do
       city = np.draw_loc
       @teams[city] = Team.new
@@ -75,6 +77,13 @@ class League
       end
     end
     assign_freeagents
+    init_standings
+  end
+
+  def init_standings
+    @teams.keys.each do |c|
+      @standings[c] = StandingRec.new(c)
+    end
   end
 
 end
@@ -100,6 +109,25 @@ class Namepool
 
   def draw_loc
     @locpool.pop
+  end
+
+end
+
+class StandingRec
+
+  attr :city, :w, :l, :rs, :ra
+
+  def initialize(c)
+    @city = c
+    @w, @l, @rs, @ra = 0, 0, 0, 0
+  end
+
+  def win_pct
+    if (@w + @l) > 0 
+      return @w / (@w + @l)
+    else
+      return 0
+    end
   end
 
 end
