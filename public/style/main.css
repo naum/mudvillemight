@@ -1,5 +1,13 @@
 @import 'taxy.css';
 
+h1 a, h2 a, h3 a {
+    color: var(--text-accent);
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover {
+    text-decoration: none;
+}
+
 td.name {
     width: 12rem;
 }

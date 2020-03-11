@@ -35,6 +35,16 @@ class Ballplayer
 
 end
 
+class BatterStatRec
+
+  attr :ab, :h, :d, :t, :hr, :rbi, :k, :w
+
+  def initialize
+    @ab, @h, @d, @t, @hr, @rbi, @k, @w = 0, 0, 0, 0, 0, 0, 0, 0
+  end
+
+end
+
 class League
 
   attr :freeagents, :schedule, :standings, :teams, :title
@@ -109,6 +119,16 @@ class Namepool
 
   def draw_loc
     @locpool.pop
+  end
+
+end
+
+class PitcherStatRec
+
+  attr :ip, :w, :l, :h, :hr, :r, :so, :bb 
+
+  def initialize
+    @ip, @w, @l, @h, @hr, @r, @so, @bb = 0, 0, 0, 0, 0, 0, 0, 0
   end
 
 end
