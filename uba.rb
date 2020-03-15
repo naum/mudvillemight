@@ -37,9 +37,10 @@ end
 
 class BatterStatRec
 
-  attr :ab, :h, :d, :t, :hr, :rbi, :k, :w
+  attr :team, :ab, :h, :d, :t, :hr, :rbi, :k, :w
 
-  def initialize
+  def initialize t
+    @team = t
     @ab, @h, @d, @t, @hr, @rbi, @k, @w = 0, 0, 0, 0, 0, 0, 0, 0
   end
 
@@ -88,11 +89,23 @@ class League
     end
     assign_freeagents
     init_standings
+    init_stat_recs
   end
 
   def init_standings
     @teams.keys.each do |c|
       @standings[c] = StandingRec.new(c)
+    end
+  end
+
+  def init_stat_recs
+    @teams.each do |c, t|
+      t.lineup.each do |bp|
+        @batterstat[bp.name] = BatterStatRec.new(c)
+      end
+      t.rotation.each do |bp|
+        @pitcherstat[bp.name] = PitcherStatRec.new(c)
+      end
     end
   end
 
@@ -125,9 +138,10 @@ end
 
 class PitcherStatRec
 
-  attr :ip, :w, :l, :h, :hr, :r, :so, :bb 
+  attr :team, :ip, :w, :l, :h, :hr, :r, :so, :bb 
 
-  def initialize
+  def initialize t
+    @team = t
     @ip, @w, @l, @h, @hr, @r, @so, @bb = 0, 0, 0, 0, 0, 0, 0, 0
   end
 
